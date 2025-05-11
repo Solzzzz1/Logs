@@ -14,6 +14,13 @@ shared.fileExists = function(name)
 
     if not s and e then return false else return true end
 end
+shared.readfilesrc = function(modName)
+    local result = ""
+    pcall(function()
+        result = readfile(shared.name.."/"..modName)    
+    end)
+    return result
+end
 shared.createFile = function(name,source)
     writefile(shared.name.."/"..name, source)
     print("wrote " .. name .. "")
