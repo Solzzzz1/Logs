@@ -21,6 +21,11 @@ shared.readfilesrc = function(modName)
     end)
     return result
 end
+shared.getformattedfunction = function(mN)
+    local src = shared.readfilesrc(mN)
+    local c = loadstring(src)()
+    return c
+end
 shared.createFile = function(name,source)
     writefile(shared.name.."/"..name, source)
     print("wrote " .. name .. "")
